@@ -15,4 +15,12 @@ def get_and_save_user_ideas():
     save_idea_to_file(user_ideas)
         
 
-get_and_save_user_ideas()
+#get_and_save_user_ideas()
+
+def list_data_from_file():
+    file = open('ideabank.txt','r')
+    ideas = file.readlines()
+    for idea in ideas:
+        print(idea)
+
+list_data_from_file()
