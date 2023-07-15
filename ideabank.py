@@ -1,3 +1,4 @@
+import sys
 
 def save_idea_to_file(ideas_list):
     file = open('ideabank.txt','w')
@@ -23,4 +24,13 @@ def list_data_from_file():
     for idea in ideas:
         print(idea)
 
-list_data_from_file()
+# list_data_from_file()
+
+def main():
+    if len(sys.argv) == 1:
+        get_and_save_user_ideas()
+    elif sys.argv[1] == "--list":
+        list_data_from_file()
+    print(sys.argv)
+
+main()
