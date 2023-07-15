@@ -1,8 +1,3 @@
-print("What's your idea ?: ")
-#user_idea = input()
-
-ideas_list =[]
-
 
 def save_idea_to_file(ideas_list):
     file = open('ideabank.txt','w')
@@ -10,6 +5,14 @@ def save_idea_to_file(ideas_list):
         file.write(f"{i}.{item}\n")
     file.close()
 
-    
+def get_and_save_user_ideas():
+    user_ideas = []
+    while True:
+        user_idea = input("Give your idea: ")
+        if user_idea == "Quit":
+            break
+        user_ideas.append(user_idea)
+    save_idea_to_file(user_ideas)
+        
 
-save_idea_to_file(("pomysł", "asdddf"))
+get_and_save_user_ideas()
