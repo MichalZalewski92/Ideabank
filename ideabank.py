@@ -24,6 +24,18 @@ def list_data_from_file():
     for idea in ideas:
         print(idea)
 
+def delete_idea(index):
+    file = open('ideabank.txt','r')
+    ideas = file.readlines()
+    try:
+        del ideas[index]
+        print(ideas)
+        save_idea_to_file(ideas)
+    except:
+        print("There is no that index in ideas")
+
+
+
 # list_data_from_file()
 
 def main():
@@ -31,6 +43,16 @@ def main():
         get_and_save_user_ideas()
     elif sys.argv[1] == "--list":
         list_data_from_file()
+    elif sys.argv[1] == "--delete":
+        try:
+            line_to_delete = sys.argv[2]
+            delete_idea(int(line_to_delete))
+        except IndexError:
+            print("Podaj idee do usunięcia")
+
+        
+
+        #delete_data_from_file()
     print(sys.argv)
 
 main()
